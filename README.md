@@ -1,3 +1,5 @@
+## Description
+- This project use both yolov8 and v5 for detector and read the plate
 ## Installation
 
 ```bash
