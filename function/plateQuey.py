@@ -82,6 +82,8 @@ def getProvice(a):
     plate = 0
     try:
         plate = int(a)
-    except ValueError:
-        plate = -1
+        if(plate not in dataBase):
+            plate = -1
+    except KeyError:
+        return -1
     return dataBase[plate]
