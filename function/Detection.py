@@ -13,7 +13,7 @@ import function.helper as helper
 import function.plateQuey as query
 
 def MainDetect(model,yolo_license_plate,img):
-    platesv8 = model.predict(img,save = False, conf = 0.25,save_conf = True,imgsz = 640)[0]
+    platesv8 = model.predict(img,save = False, show = True, conf = 0.2,save_conf = True,imgsz = 640)[0]
     list_plates = list(platesv8.boxes.xyxy) # split the bounding data
     list_read_plates = set()
 
@@ -43,7 +43,7 @@ def MainDetect(model,yolo_license_plate,img):
                         list_read_plates.add(lp)
                         province = query.getProvice(lp[0:2])
                         cv2.putText(img, lp, (int(plate[0]), int(plate[1]-25)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (36,255,12), 2)
-                        cv2.putText(img, "Province : " + province, (int(plate[0]), int(plate[1]-10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,100,12), 2)
+                        cv2.putText(img, "Province : " + province, (int(plate[0]), int(plate[1]-10)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (36,255,12), 2)
                         flag = 1
                         break
                 if flag == 1:
