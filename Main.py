@@ -1,16 +1,7 @@
-from PIL import Image
 import cv2
 import torch
-import math 
 from ultralytics import YOLO
 import os
-from PIL import Image
-from numpy import asarray
-import time
-import argparse
-import function.utils_rotate as utils_rotate
-import function.helper as helper
-import function.plateQuey as query
 import function.Detection as detector
 
 
@@ -19,7 +10,7 @@ model_path = os.path.join("model","model10_10.pt")
 yolo_license_plate = torch.hub.load('yolov5', 'custom', path='model/LP_ocr.pt', force_reload=True, source='local')
 model = YOLO(model_path)
 
-imageName = "biendep_ldct.jpg" # <== image,video name here
+imageName = "117.jpg" # <== image,video name here
 
 
 if imageName.lower().endswith((".mp4", ".avi", ".mkv", ".gif")):
@@ -27,7 +18,7 @@ if imageName.lower().endswith((".mp4", ".avi", ".mkv", ".gif")):
     fourcc = cv2.VideoWriter_fourcc(*'mp4v') 
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
-    fps = int(cap.get(5))
+    fps = int(cap.ge4t(5))
     out = cv2.VideoWriter(os.path.join("result",imageName), fourcc, fps, (frame_width, frame_height))
     i = 1
     if not cap.isOpened():

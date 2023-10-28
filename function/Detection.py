@@ -1,19 +1,10 @@
-from PIL import Image
 import cv2
-import torch
-import math 
-from ultralytics import YOLO
-import os
-from PIL import Image
-from numpy import asarray
-import time
-import argparse
 import function.utils_rotate as utils_rotate
-import function.helper as helper
+import function.readPlate as helper
 import function.plateQuey as query
 
 def MainDetect(model,yolo_license_plate,img):
-    platesv8 = model.predict(img,save = False, show = True, conf = 0.2,save_conf = True,imgsz = 640)[0]
+    platesv8 = model.predict(img,save = False, show = True, conf = 0.25,save_conf = True,imgsz = 640)[0]
     list_plates = list(platesv8.boxes.xyxy) # split the bounding data
     list_read_plates = set()
 

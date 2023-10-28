@@ -1,7 +1,10 @@
 ## Description
 - This project use both yolov8 and v5 for detector and read the plate
+- input the image name in file Main.py
+- output will be saved in result folder with your image name.
 ## Installation
-
+- Install required librarys.
+- Run the Powershell as admin, run the below script.
 ```bash
   pip install -r ./requirement.txt
 ```

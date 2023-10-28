@@ -10,7 +10,7 @@ def changeContrast(img):
     limg = cv2.merge((cl,a,b))
     enhanced_img = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
     return enhanced_img
-
+# https://stackoverflow.com/questions/39308030/how-do-i-increase-the-contrast-of-an-image-in-python-opencv
 def rotate_image(image, angle):
     image_center = tuple(np.array(image.shape[1::-1]) / 2)
     rot_mat = cv2.getRotationMatrix2D(image_center, angle, 1.0)
@@ -43,7 +43,6 @@ def compute_skew(src_img, center_thres):
                 min_line_pos = i
 
     angle = 0.0
-    nlines = lines.size
     cnt = 0
     for x1, y1, x2, y2 in lines[min_line_pos]:
         ang = np.arctan2(y2 - y1, x2 - x1)
